@@ -9,17 +9,6 @@ PORT = 8001
 BUFFER_SIZE = 1024
 
 
-#get host information
-def get_remote_ip(host):
-    print(f'Getting IP for {host}')
-    try:
-        remote_ip = socket.gethostbyname( host )
-    except socket.gaierror:
-        print ('Hostname could not be resolved. Exiting')
-        sys.exit()
-
-    print (f'Ip address of {host} is {remote_ip}')
-    return remote_ip
 
 
 def main():
@@ -67,6 +56,7 @@ def get_remote_ip(host):
 
     print (f'Ip address of {host} is {remote_ip}')
     return remote_ip
+    
 
 def handle_request(addr, conn, proxy_end):
 	send_full_data = conn.recv(BUFFER_SIZE)
